@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+
+
+<object  width="800" height="72" data="home-button-v2.svg?global=paused" type="image/svg+xml"
+        onmouseover="playAnimation(this)" onmouseout="stopAnimation(this)"></object>
+
+<script>
+function playAnimation(obj)
+{
+    if (obj.contentDocument && obj.contentDocument.ks) {
+        var ks = obj.contentDocument.ks;
+        if (ks.timelines()[0].state() != "running") {
+            //ks.timelines()[0].time(0);
+        }
+        ks.globalPlay();
+    }
+}
+function stopAnimation(obj)
+{
+    if (obj.contentDocument && obj.contentDocument.ks) {
+        var ks = obj.contentDocument.ks;
+        if (ks.globalState() != "idle" && ks.globalState() != "paused") {
+            //ks.timelines()[0].time(0);
+            ks.globalPause();
+        }
+    }
+}
+</script>
+
+</body>
+</html>
